@@ -1,12 +1,11 @@
 import { Router } from "express";
-import { addNotes } from "../controllers/notes.controllers";
-import { upload } from "../middlewares/multer";
+import { addNotes } from "../controllers/notes.controllers.js";
+import { uploadMiddleware } from "../middlewares/multer.middleware.js";
 
 const router = Router();
 
 
-router.route("/add-notes").post(
-    upload.single("file"),
-    addNotes
-)
+router.post("/add-notes", uploadMiddleware, addNotes);
+
+export default router;
 

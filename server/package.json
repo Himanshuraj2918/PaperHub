@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "description": "server page paperhub",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
   },
   "author": "himanshuraj tiwari",
   "license": "ISC",
   "dependencies": {
+    "cloudinary": "^2.5.1",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
-    "mongoose": "^8.7.3"
+    "mongoose": "^8.7.3",
+    "multer": "^1.4.5-lts.1"
   }
 }

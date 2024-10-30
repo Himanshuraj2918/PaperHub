@@ -1,5 +1,5 @@
-import { asyncHandler } from "../utils/asyncHandler";
-import { Notes } from "../models/notes.models";
+import { asyncHandler } from "../utils/asyncHandler.js";
+import { Notes } from "../models/notes.models.js";
 import {
     uploadOnCloudinary,
     deleteFromCloudinary,
@@ -8,64 +8,49 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 import mongoose from "mongoose";
 
 const addNotes = asyncHandler(async(req,res)=>{
-    
-    const {subjectName,subjectCode,department,semester} = req.body;
+    const {subjectName, subjectCode, year, department, semester, description} = req.body;
 
-    if (
-        [subjectName,subjectCode,department,semester].some((field) => field?.trim() == "")
-      ) {
+    // Validate required fields
+    if ([subjectName, subjectCode, year, department, semester, description]
+        .some((field) => field?.trim() === "")) {
         return res.status(400).json({
             status: 400,
             message: "Validation Error",
             error: {
                 code: "MISSING_FIELDS",
-                description: "Some field value is not passed."
+                description: "All fields are required"
             }
-        })
-      }
+        });
+    }
 
-  const filePath = req.files?.file?.path;
-  if (!filePath) 
-    return res.status(400).json({
-        status: 400,
-        message: "File Upload Error",
-        error: {
-            code: "FILE_UPLOAD",
-            description: "A proper file is required."
-        }
-    })
-
+    // File should exist because multer middleware already validated it
+    const filePath = req.file?.path;
     const file = await uploadOnCloudinary(filePath);
-    if(!file) return res.status(400).json({
-        status: 400,
-        message: "File Upload Error",
-        error: {
-            code: "FILE_UPLOAD",
-            description: "A proper file is required."
-        }
-    })
+    
+    if(!file) {
+        return res.status(400).json({
+            status: 400,
+            message: "File Upload Error",
+            error: {
+                code: "CLOUDINARY_UPLOAD_FAILED",
+                description: "Failed to upload file to cloud storage"
+            }
+        });
+    }
 
     const note = await Notes.create({
         subjectName,
         subjectCode,
+        year,
         department,
         semester,
-        file:file.url
-    })
-
-    if(!note) 
-        return res.status(500).json({
-            status: 500,
-            message: "Server Error",
-            error: {
-                code: "SERVER_ERROR",
-                description: "Error on database."
-            }
-        })
+        description,
+        file: file.url
+    });
 
     return res
-    .status(200)
-    .json(new ApiResponse(200,note,"File uploaded sucessfully."))
-})
+        .status(200)
+        .json(new ApiResponse(200, note, "File uploaded successfully"));
+});
 
 export {addNotes}
