@@ -1,11 +1,17 @@
 import multer from "multer";
+import fs from "fs";
 import path from "path";
-const _dirname = path.resolve();
-console.log(_dirname);
+
+// Ensure the temp directory exists
+const tempDir = path.resolve("public/temp");
+
+if (!fs.existsSync(tempDir)) {
+    fs.mkdirSync(tempDir, { recursive: true });
+}
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.join(_dirname, "/server/public/temp"));
+        cb(null, tempDir); // Use the resolved temp directory
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname);
@@ -14,27 +20,25 @@ const storage = multer.diskStorage({
 
 // File filter function
 const fileFilter = (req, file, cb) => {
-    // Check file type if needed
-    if (file.mimetype === 'application/pdf') {
+    if (file.mimetype === "application/pdf") {
         cb(null, true);
     } else {
-        cb(new Error('Only PDF files are allowed!'), false);
+        cb(new Error("Only PDF files are allowed!"), false);
     }
 };
 
 const upload = multer({
     storage,
     limits: {
-        fileSize: 2 * 1024 * 1024  // 2MB limit
+        fileSize: 2 * 1024 * 1024 // 2MB limit
     },
     fileFilter
-}).single('notesFile');  
+}).single("notesFile");
 
 // Wrapper function for better error handling
 const uploadMiddleware = (req, res, next) => {
     upload(req, res, function (err) {
         if (err instanceof multer.MulterError) {
-            // Multer error (like file size exceeded)
             return res.status(400).json({
                 status: 400,
                 message: "File Upload Error",
@@ -44,7 +48,6 @@ const uploadMiddleware = (req, res, next) => {
                 }
             });
         } else if (err) {
-           
             return res.status(400).json({
                 status: 400,
                 message: "File Upload Error",
@@ -58,4 +61,4 @@ const uploadMiddleware = (req, res, next) => {
     });
 };
 
-export { uploadMiddleware }; 
+export { uploadMiddleware };
