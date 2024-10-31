@@ -6,7 +6,7 @@ const notesSchema = new Schema({
         required: [true, 'Subject Name is required.']
     },
     subjectCode: {
-        type: Number,
+        type: String,
         required: [true, 'Subject Code is required.']
     },
     year: {
