@@ -74,7 +74,7 @@ function Home() {
       {/* First row - 3 cards */}
       <div className="grid grid-cols-3 gap-8 mb-8">
         <div 
-          onClick={() => navigate('/notes/computer')}
+          onClick={() => navigate('/notes/Computer')}
           className="p-6 rounded-xl border hover:shadow-lg transition-all cursor-pointer"
         >
           <div className="text-2xl mb-2">💻</div>
@@ -83,7 +83,7 @@ function Home() {
         </div>
 
         <div 
-          onClick={() => navigate('/notes/electrical')}
+          onClick={() => navigate('/notes/Electrical')}
           className="p-6 rounded-xl border hover:shadow-lg transition-all cursor-pointer"
         >
           <div className="text-2xl mb-2">⚡</div>
@@ -92,7 +92,7 @@ function Home() {
         </div>
 
         <div 
-          onClick={() => navigate('/notes/mechanical')}
+          onClick={() => navigate('/notes/Mechanical')}
           className="p-6 rounded-xl border hover:shadow-lg transition-all cursor-pointer"
         >
           <div className="text-2xl mb-2">⚙️</div>
@@ -104,7 +104,7 @@ function Home() {
       {/* Second row - 2 centered cards */}
       <div className="grid grid-cols-2 gap-8 max-w-[700px] mx-auto">
         <div 
-          onClick={() => navigate('/notes/biomedical')}
+          onClick={() => navigate('/notes/Biomedical')}
           className="p-6 rounded-xl border hover:shadow-lg transition-all cursor-pointer"
         >
           <div className="text-2xl mb-2">🔬</div>
