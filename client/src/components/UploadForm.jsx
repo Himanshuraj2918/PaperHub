@@ -106,7 +106,7 @@ function UploadForm() {
 
     try {
       const response = await axios.post(
-        'http://localhost:8000/api/v1/notes/add-notes',
+        'https://paperhub-yspm.onrender.com/api/v1/notes/add-notes',
         formDataToSend,
         {
           headers: {

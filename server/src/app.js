@@ -7,7 +7,7 @@ const _dirname = path.resolve();
 
 app.use(
     cors({
-        origin:"*",
+        origin:"https://paperhub-yspm.onrender.com",
     })
 )
 
