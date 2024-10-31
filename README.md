@@ -10,7 +10,7 @@ PaperHub is a web application designed to streamline the process of accessing an
 
 ## ⚡ Live Demo
 
-[View Demo](your-demo-link) · [Report Bug](your-repo-link/issues) · [Request Feature](your-repo-link/issues)
+[View Demo](your-demo-link) 
 
 ## 🎯 Features
 
@@ -41,34 +41,34 @@ PaperHub is a web application designed to streamline the process of accessing an
 ## 🗂️ Project Structure
 
 PaperHub
-├── 📁 client
-│   ├── 📁 src
-│   │   ├── 📁 components
-│   │   │   ├── 📄 Navbar
-│   │   │   ├── 📄 Output
-│   │   │   └── 📄 UploadForm
-│   │   ├── 📁 pages
-│   │   │   ├── 📄 Home
-│   │   │   └── 📄 Notes
-│   │   └── 📁 services
-│   │       └── 📁 api
+├── 📁client
+│   ├── 📁src
+│   │   ├── 📁components
+│   │   │   ├── 📄Navbar
+│   │   │   ├── 📄Output
+│   │   │   └── 📄UploadForm
+│   │   ├──📁pages
+│   │   │   ├──📄Home
+│   │   │   └──📄Notes
+│   │   └──📁services
+│   │       └──📁api
 │   └── 📄 package.json
-├── 📁 server
-│   ├── 📁 controllers
-│   │   └── 📄 notes.controllers
-│   ├── 📁 db
-│   │   └── 📄 db.js
-│   ├── 📁 middleware
-│   │   └── 📄 multer.middleware
-│   ├── 📁 models
-│   │   └── 📄 notes.models
-│   └── 📁 routes
-│       └── 📄 notes.routes
-├── 📁 utils
-│   ├── 📄 cloudinary
-│   ├── 📄 asyncHandler
-│   └── 📄 apiresponse
-└── 📄 Readme.md
+├──📁server
+│   ├──📁controllers
+│   │   └──📄notes.controllers
+│   ├──📁db
+│   │   └──📄db.js
+│   ├──📁middleware
+│   │   └──📄multer.middleware
+│   ├──📁models
+│   │   └──📄notes.models
+│   └──📁routes
+│       └──📄notes.routes
+├──📁utils
+│   ├──📄cloudinary
+│   ├──📄asyncHandler
+│   └──📄apiresponse
+└──📄Readme.md
 
 ---
 
@@ -135,8 +135,8 @@ cd server && npm run dev
 
 --- 
 
-![Page1](./public/output.png)
-![Page2](./public/output2.png)
-![Page3](./public/output3.png)
-![Page4](./public/output4.png)
+![Page1](https://github.com/Himanshuraj2918/PaperHub/blob/main/client/src/assets/output-images/Page-1.png)
+![Page2](https://github.com/Himanshuraj2918/PaperHub/blob/main/client/src/assets/output-images/Page-2.png)
+![Page3](https://github.com/Himanshura[j2918/PaperHub/blob/main/client/src/assets/output-images/Page-3.png)
+![Page4](https://github.com/Himanshuraj2918/PaperHub/blob/main/client/src/assets/output-images/Page-4.png)
 
