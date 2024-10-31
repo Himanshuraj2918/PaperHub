@@ -10,7 +10,7 @@ PaperHub is a web application designed to streamline the process of accessing an
 
 ## ⚡ Live Demo
 
-[View Demo](your-demo-link) · [Report Bug](your-repo-link/issues) · [Request Feature](your-repo-link/issues)
+[View Demo](your-demo-link) 
 
 ## 🎯 Features
 
@@ -33,43 +33,42 @@ PaperHub is a web application designed to streamline the process of accessing an
 |--------|----------|-------------|--------------|-----------|
 | GET | `/api/v1/notes/get-notes` | Get notes by branch & semester | Query: `branch`, `semester` | `{ success: true, data: [...notes] }` |
 | POST | `/api/v1/notes/upload` | Upload new note | Form-data: `file`, `metadata` | `{ success: true, message: "Note uploaded" }` |
-| GET | `/api/v1/notes/:branch` | Get branch notes | - | `{ success: true, data: [...notes] }` |
-| DELETE | `/api/v1/notes/:id` | Delete note | - | `{ success: true, message: "Note deleted" }` |
 
 ---
 
 ## 🗂️ Project Structure
-
+```bash
 PaperHub
-├── 📁 client
-│   ├── 📁 src
-│   │   ├── 📁 components
-│   │   │   ├── 📄 Navbar
-│   │   │   ├── 📄 Output
-│   │   │   └── 📄 UploadForm
-│   │   ├── 📁 pages
-│   │   │   ├── 📄 Home
-│   │   │   └── 📄 Notes
-│   │   └── 📁 services
-│   │       └── 📁 api
+├── 📁client
+│   ├── 📁src
+│   │   ├── 📁components
+│   │   │   ├── 📄Navbar
+│   │   │   ├── 📄Output
+│   │   │   └── 📄UploadForm
+│   │   ├──📁pages
+│   │   │   ├──📄Home
+│   │   │   └──📄Notes
+│   │   └──📁services
+│   │       └──📁api
 │   └── 📄 package.json
-├── 📁 server
-│   ├── 📁 controllers
-│   │   └── 📄 notes.controllers
-│   ├── 📁 db
-│   │   └── 📄 db.js
-│   ├── 📁 middleware
-│   │   └── 📄 multer.middleware
-│   ├── 📁 models
-│   │   └── 📄 notes.models
-│   └── 📁 routes
-│       └── 📄 notes.routes
-├── 📁 utils
-│   ├── 📄 cloudinary
-│   ├── 📄 asyncHandler
-│   └── 📄 apiresponse
-└── 📄 Readme.md
+├──📁server
+│   ├──📁controllers
+│   │   └──📄notes.controllers
+│   ├──📁db
+│   │   └──📄db.js
+│   ├──📁middleware
+│   │   └──📄multer.middleware
+│   ├──📁models
+│   │   └──📄notes.models
+│   └──📁routes
+│       └──📄notes.routes
+├──📁utils
+│   ├──📄cloudinary
+│   ├──📄asyncHandler
+│   └──📄apiresponse
+└──📄Readme.md
 
+````
 ---
 
 ## 🛠️ Technology Stack
@@ -135,8 +134,32 @@ cd server && npm run dev
 
 --- 
 
-![Page1](./public/output.png)
-![Page2](./public/output2.png)
-![Page3](./public/output3.png)
-![Page4](./public/output4.png)
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  
+  <!-- Home Page -->
+  <div style="flex: 1 1 50%; max-width: 50%; text-align: center;">
+    <h3>1. Home Page</h3>
+    <img src="https://github.com/Himanshuraj2918/PaperHub/blob/main/client/src/assets/output-images/Page-1.png" alt="Home Page" style="width: 100%;">
+  </div>
+  
+  <!-- Notes Page -->
+  <div style="flex: 1 1 50%; max-width: 50%; text-align: center;">
+    <h3>2. Notes Page</h3>
+    <img src="https://github.com/Himanshuraj2918/PaperHub/blob/main/client/src/assets/output-images/Page-2.png" alt="Notes Page" style="width: 100%;">
+  </div>
+  
+  <!-- Warning -->
+  <div style="flex: 1 1 50%; max-width: 50%; text-align: center; margin-top: 10px;">
+    <h3>3. Warning</h3>
+    <img src="https://github.com/Himanshuraj2918/PaperHub/blob/main/client/src/assets/output-images/Page-3.png" alt="Warning" style="width: 100%;">
+  </div>
+  
+  <!-- Upload File -->
+  <div style="flex: 1 1 50%; max-width: 50%; text-align: center; margin-top: 10px;">
+    <h3>4. Upload File</h3>
+    <img src="https://github.com/Himanshuraj2918/PaperHub/blob/main/client/src/assets/output-images/Page-4.png" alt="Upload File" style="width: 100%;">
+  </div>
+  
+</div>
+
 
