@@ -5,7 +5,10 @@ import UploadForm from '../components/UploadForm';
 function Notes() {
   const { branch } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showWarning, setShowWarning] = useState(false);
 
+  console.log(branch);
+  
   const semesters = [
     { num: 1, title: `First Semester`, desc: "Foundation courses and basic engineering concepts" },
     { num: 2, title: `Second Semester`, desc: "Core subjects and fundamental principles" },
@@ -16,6 +19,62 @@ function Notes() {
     { num: 7, title: "Seventh Semester", desc: "Specialized courses and project work" },
     { num: 8, title: "Eighth Semester", desc: "Final year projects and electives" },
   ];
+
+  // Warning modal component
+  const WarningModal = () => (
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+      <div className="bg-white rounded-lg p-6 max-w-md mx-4 relative">
+        <div className="mb-4 text-amber-500">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            className="h-12 w-12 mx-auto" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+          >
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth={2} 
+              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" 
+            />
+          </svg>
+        </div>
+        <h3 className="text-xl font-semibold text-center mb-2">
+          Important Notice
+        </h3>
+        <p className="text-gray-600 text-center mb-6">
+          Please ensure:
+        </p>
+        <ul className="text-gray-600 mb-6 space-y-2 list-disc pl-4">
+          <li>Upload only valid and verified study materials</li>
+          <li>Check for duplicate content before uploading</li>
+          <li>File size should be less than 2MB</li>
+          <li>Only PDF format is supported</li>
+          <li>
+            We have limited resources to access, so please upload only important materials
+          </li>
+        </ul>
+        <div className="flex justify-end space-x-3">
+          <button
+            onClick={() => setShowWarning(false)}
+            className="px-4 py-2 text-gray-600 hover:text-gray-800"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={() => {
+              setShowWarning(false);
+              setIsModalOpen(true);
+            }}
+            className="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800"
+          >
+            I Understand
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div className="container mx-auto px-4 py-16 relative">
@@ -58,7 +117,7 @@ function Notes() {
       </div>
 
       <button
-        onClick={() => setIsModalOpen(true)}
+        onClick={() => setShowWarning(true)}
         className="fixed bottom-16 right-3 bg-black text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-800 transition-colors"
       >
         <svg 
@@ -76,6 +135,8 @@ function Notes() {
           />
         </svg>
       </button>
+
+      {showWarning && <WarningModal />}
 
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">

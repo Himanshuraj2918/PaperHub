@@ -70,7 +70,7 @@ function Home() {
     </div>
 
     {/* Department Cards */}
-    <div className="w-4/5 mx-auto">
+    <div className="w-4/5 mx-auto mb-10">
       {/* First row - 3 cards */}
       <div className="grid grid-cols-3 gap-8 mb-8">
         <div 

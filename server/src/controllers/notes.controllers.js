@@ -53,4 +53,39 @@ const addNotes = asyncHandler(async(req,res)=>{
         .json(new ApiResponse(200, note, "File uploaded successfully"));
 });
 
-export {addNotes}
+const getNotes = asyncHandler(async(req,res)=>{
+    const {branch} = req.params;
+    const{semester} = req.query;
+    if(!(semester && branch)){
+        return res.status(400).json({
+            status: 400,
+            message: "Validation Error",
+            error: {
+                code: "MISSING_FIELDS",
+                description: "Semester and Branch are required"
+            }
+        });
+    }
+    const notes = await Notes.find(
+        {
+           $and: [
+            {department: branch},
+            {semester: semester}
+           ]
+        }
+    );
+ if (!notes) {
+    return res.status(400).json({
+        status: 400,
+        message: "Notes not found",
+        error: {
+            code: "NOTES_NOT_FOUND",
+            description: "No notes found for the given semester and branch"
+        }
+    });
+ }
+
+    return res.status(200).json(new ApiResponse(200, notes, "Notes fetched successfully"));
+});
+
+export {addNotes, getNotes}
