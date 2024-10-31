@@ -33,8 +33,6 @@ PaperHub is a web application designed to streamline the process of accessing an
 |--------|----------|-------------|--------------|-----------|
 | GET | `/api/v1/notes/get-notes` | Get notes by branch & semester | Query: `branch`, `semester` | `{ success: true, data: [...notes] }` |
 | POST | `/api/v1/notes/upload` | Upload new note | Form-data: `file`, `metadata` | `{ success: true, message: "Note uploaded" }` |
-| GET | `/api/v1/notes/:branch` | Get branch notes | - | `{ success: true, data: [...notes] }` |
-| DELETE | `/api/v1/notes/:id` | Delete note | - | `{ success: true, message: "Note deleted" }` |
 
 ---
 
