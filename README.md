@@ -39,7 +39,7 @@ PaperHub is a web application designed to streamline the process of accessing an
 ---
 
 ## 🗂️ Project Structure
-
+```bash
 PaperHub
 ├── 📁client
 │   ├── 📁src
@@ -70,6 +70,7 @@ PaperHub
 │   └──📄apiresponse
 └──📄Readme.md
 
+````
 ---
 
 ## 🛠️ Technology Stack
@@ -135,8 +136,32 @@ cd server && npm run dev
 
 --- 
 
-![Page1](https://github.com/Himanshuraj2918/PaperHub/blob/main/client/src/assets/output-images/Page-1.png)
-![Page2](https://github.com/Himanshuraj2918/PaperHub/blob/main/client/src/assets/output-images/Page-2.png)
-![Page3](https://github.com/Himanshura[j2918/PaperHub/blob/main/client/src/assets/output-images/Page-3.png)
-![Page4](https://github.com/Himanshuraj2918/PaperHub/blob/main/client/src/assets/output-images/Page-4.png)
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  
+  <!-- Home Page -->
+  <div style="flex: 1 1 50%; max-width: 50%; text-align: center;">
+    <h3>1. Home Page</h3>
+    <img src="https://github.com/Himanshuraj2918/PaperHub/blob/main/client/src/assets/output-images/Page-1.png" alt="Home Page" style="width: 100%;">
+  </div>
+  
+  <!-- Notes Page -->
+  <div style="flex: 1 1 50%; max-width: 50%; text-align: center;">
+    <h3>2. Notes Page</h3>
+    <img src="https://github.com/Himanshuraj2918/PaperHub/blob/main/client/src/assets/output-images/Page-2.png" alt="Notes Page" style="width: 100%;">
+  </div>
+  
+  <!-- Warning -->
+  <div style="flex: 1 1 50%; max-width: 50%; text-align: center; margin-top: 10px;">
+    <h3>3. Warning</h3>
+    <img src="https://github.com/Himanshuraj2918/PaperHub/blob/main/client/src/assets/output-images/Page-3.png" alt="Warning" style="width: 100%;">
+  </div>
+  
+  <!-- Upload File -->
+  <div style="flex: 1 1 50%; max-width: 50%; text-align: center; margin-top: 10px;">
+    <h3>4. Upload File</h3>
+    <img src="https://github.com/Himanshuraj2918/PaperHub/blob/main/client/src/assets/output-images/Page-4.png" alt="Upload File" style="width: 100%;">
+  </div>
+  
+</div>
+
 
