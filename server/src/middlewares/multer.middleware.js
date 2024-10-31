@@ -1,8 +1,11 @@
 import multer from "multer";
+import path from "path";
+const _dirname = path.resolve();
+console.log(_dirname);
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, "./public/temp");
+        cb(null, path.join(_dirname, "/server/public/temp"));
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname);

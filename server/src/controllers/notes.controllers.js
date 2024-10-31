@@ -6,6 +6,7 @@ import {
   } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import mongoose from "mongoose";
+import fs from "fs"
 
 const addNotes = asyncHandler(async(req,res)=>{
     const {subjectName, subjectCode, year, department, semester, description} = req.body;
@@ -25,6 +26,13 @@ const addNotes = asyncHandler(async(req,res)=>{
 
     // File should exist because multer middleware already validated it
     const filePath = req.file?.path;
+    
+    if (!filePath || !fs.existsSync(filePath)) {
+        return res.status(400).json({
+            status: 400,
+            message: "File not found at the specified path",
+        });
+    }
     const file = await uploadOnCloudinary(filePath);
     
     if(!file) {
