@@ -87,7 +87,7 @@ PaperHub
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/your-repo.git
+git clone https://github.com/Himanshuraj2918/PaperHub.git
 ```
 
 2. **Install dependencies**
